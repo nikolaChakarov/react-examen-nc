@@ -2,6 +2,6 @@ const { Router } = require('express');
 
 const route = Router();
 
-route.use('/register', require('./routes/register'));
+route.use('/users', require('./routes/users'));
 
 module.exports = route;

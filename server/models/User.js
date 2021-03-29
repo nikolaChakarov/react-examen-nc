@@ -14,7 +14,8 @@ const UserSchema = new mongoose.Schema({
         ref: 'movie'
     }],
     date: {
-        type: Date.now()
+        type: Date,
+        default: Date.now
     }
 });
 
