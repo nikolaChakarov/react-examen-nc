@@ -20,8 +20,11 @@ const MovieSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    description: String
-
+    description: String,
+    likes: {
+        type: Number,
+        default: 0
+    }
 });
 
 const Movie = mongoose.model('movie', MovieSchema);

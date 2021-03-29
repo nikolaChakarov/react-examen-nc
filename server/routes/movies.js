@@ -11,6 +11,9 @@ const auth = require('../middlewares/auth');
 
 const route = Router();
 
+// Create Movie
+// Private
+
 route.post('/create', auth, [
     check('title', 'Title is required.').not().isEmpty(),
     check('genre', 'Genre is required.').not().isEmpty()
@@ -44,5 +47,8 @@ route.post('/create', auth, [
     }
 
 });
+
+// Update Movie
+// Private
 
 module.exports = route;
