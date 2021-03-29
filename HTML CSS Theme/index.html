@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="home-nav">
+            <h2>Movies Catalog</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Catalog</a></li>
+                <li><a href="#">Create</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- end Navigation -->
+    <!-- Home Page not register or logged in user -->
+
+    <section class="first-look">
+        <h1>Welcome! To see our catalog, please:</h1>
+        <div class="first-look-btn">
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+        </div>
+    </section>
+
+    <section class="intro">
+        <div class="intro-img">
+            <img src="./resourses/pexels-pixabay-265144.jpg" alt="">
+        </div>
+        <div class="intro-text">
+            <h3>Hello, my name is Nikola Chakarov.</h3>
+            <p>So happy to share my first React procect with you.</p>
+        </div>
+    </section>
+    <!-- end Home Page not register or logged in user -->
+
+    <!-- Registe Form -->
+    <section class="register-section">
+        <div class="register-intro">
+            <h3>Register Form</h3>
+            <p>Please, Register here, or if you have an account<br /> feel free to <a href="">Login</a></p>
+        </div>
+        <form class="register-form">
+            <div>
+                <label for="username">User name</label><br />
+                <input type="text" name="username" id="username">
+            </div>
+            <div>
+                <label for="password">Password</label><br />
+                <input type="text" name="password" id="password">
+            </div>
+            <div>
+                <label for="repeat-password">Repeat password</label><br />
+                <input type="text" name="repeatPasword" id="repeat-password">
+            </div>
+            <button>Register</button>
+        </form>
+
+    </section>
+
+    <!-- end Registe Form -->
+
+    <!-- Login Form -->
+    <section class="login-section">
+        <div class="login-intro">
+            <h3>Login Form</h3>
+            <p>Please, Login here, or if you do not have an account<br /> feel free to <a href="">Register</a></p>
+        </div>
+        <form class="login-form">
+            <div>
+                <label for="username">User name</label><br />
+                <input type="text" name="username" id="username">
+            </div>
+            <div>
+                <label for="password">Password</label><br />
+                <input type="text" name="password" id="password">
+            </div>
+            <button>Login</button>
+        </form>
+
+    </section>
+
+    <!-- end Login Form -->
+
+    <!-- Catalog Page -->
+
+    <section class="movies-catalog">
+        <div class="movies-intro">
+            <h2>Movies Catalog</h2>
+            <p>Sorry, there are no currently movies in our catalog.</p>
+            <p>Please, be the first one to <a href="">Add Movie</a>.</p>
+            <p>Movies in our catalog so far 100</p>
+        </div>
+
+        <div class="movies">
+            <div class="movie">
+                <h3>Title</h3>
+                <div class="movie-img">
+                    <img src="./resourses/pexels-markus-spiske-234140.jpg" alt="">
+                </div>
+                <a href="">Details</a>
+            </div>
+            <div class="movie">
+                <h3>Title</h3>
+                <div class="movie-img">
+                    <img src="./resourses/pexels-pixabay-265144.jpg" alt="">
+                </div>
+                <a href="">Details</a>
+            </div>
+            <div class="movie">
+                <h3>Title</h3>
+                <div class="movie-img">
+                    <img src="./resourses/pexels-miguel-á-padriñán-167092.jpg" alt="">
+                </div>
+                <a href="">Details</a>
+            </div>
+            <div class="movie">
+                <h3>Title</h3>
+                <div class="movie-img">
+                    <img src="./resourses/pexels-markus-spiske-6879095.jpg" alt="">
+                </div>
+                <a href="">Details</a>
+            </div>
+            <div class="movie">
+                <h3>Title</h3>
+                <div class="movie-img">
+                    <img src="./resourses/pexels-dmitry-demidov-3921045.jpg" alt="">
+                </div>
+                <a href="">Details</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!--End Catalog Page -->
+
+    <!-- Create Form -->
+    <section class="create-section">
+        <div class="create-intro">
+            <h3>Create Movie</h3>
+            <p>Fill the information about your favorite movie!</p>
+        </div>
+        <form class="create-movie-form">
+            <div>
+                <label for="title">Movie title</label><br />
+                <input type="text" name="title" id="title">
+            </div>
+            <div>
+                <label for="director">Director:</label><br />
+                <input type="text" name="director" id="director">
+            </div>
+            <div>
+                <label for="year">Year:</label><br />
+                <input type="number" name="year" id="year">
+            </div>
+            <div>
+                <label for="imageURL">Image URL:</label><br />
+                <input type="text" name="imageURL" id="imgeURL">
+            </div>
+            <select name="genres" id="genres">
+                <option value="" selected disabled>Select genre</option>
+                <option value="action">Action</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="adventure">Adventure</option>
+                <option value="history">history</option>
+            </select>
+            <div class="checkbox">
+                <label for="blackAndWhite">Black And White:</label>
+                <input type="checkbox" name="blackAndWhite" id="blackAndWhite">
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            </div>
+            <button>Create</button>
+        </form>
+
+    </section>
+
+    <!-- end Create Form -->
+
+    <!-- Edit Form -->
+    <section class="edit-section">
+        <div class="edit-intro">
+            <h3>Edit Movie</h3>
+            <p>Edit movie: Movie Title</p>
+        </div>
+        <form class="edit-movie-form">
+            <div>
+                <label for="title">Movie title</label><br />
+                <input type="text" name="title" id="title">
+            </div>
+            <div>
+                <label for="director">Director:</label><br />
+                <input type="text" name="director" id="director">
+            </div>
+            <div>
+                <label for="year">Year:</label><br />
+                <input type="number" name="year" id="year">
+            </div>
+            <div>
+                <label for="imageURL">Image URL:</label><br />
+                <input type="text" name="imageURL" id="imgeURL">
+            </div>
+            <select name="ganres" id="ganres">
+                <option value="" selected disabled>Select genre</option>
+                <option value="action">Action</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="adventure">Adventure</option>
+                <option value="history">history</option>
+            </select>
+            <div class="checkbox">
+                <label for="blackAndWhite">Black And White:</label>
+                <input type="checkbox" name="blackAndWhite" id="blackAndWhite">
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            </div>
+            <button>Edit</button>
+        </form>
+
+    </section>
+
+    <!-- end Edit Form -->
+
+    <!-- Details Page-->
+    <section class="details-movie">
+        <div class="details-data">
+            <div class="details-img">
+                <img src="./resourses/pexels-steve-johnson-1145719.jpg" alt="">
+            </div>
+            <div class="details-info">
+                <div class="details-text">
+                    <h2>Details for movie: Movie Title</h2>
+
+                    <p>Director: director</p>
+                    <p>Year: year</p>
+                    <p>Genre: genre</p>
+                    <p>Black and White: black and white</p>
+                    <p>Description: description</p>
+                </div>
+                <div class="details-btn">
+                    <a href="">Like</a>
+                    <a href="">Edit</a>
+                    <a href="">Delete</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end Details Page-->
+
+    <!-- footer -->
+    <footer>Nikola Chakarov &copy; 2021</footer>
+    <!-- end footer -->
+
+</body>
+
+</html>
