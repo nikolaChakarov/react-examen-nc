@@ -1,7 +1,16 @@
 const express = require('express');
+const configExpress = require('./config/express');
+const configMongoose = require('./config/mongoose');
+
+const config = require('./config/config');
+
 const app = express();
 
+configExpress(app);
+configMongoose();
 
-app.listen(5000, () => {
-    console.log('App is listening at 5000');
+
+
+app.listen(config.PORT, () => {
+    console.log(`App is listening at ${config.PORT}`);
 });
