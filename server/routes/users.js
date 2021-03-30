@@ -1,11 +1,12 @@
-const { Router, response } = require('express');
+const { Router } = require('express');
 const config = require('../config/config');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
 
+const auth = require('../middlewares/auth');
+
 const User = require('../models/User');
-const configMongoose = require('../config/mongoose');
 
 const route = Router();
 
@@ -66,7 +67,6 @@ route.post('/register', [
         res.status(500).send('Server Error');
     }
 
-    res.send('register')
 });
 
 //@ POST login user
@@ -114,6 +114,21 @@ route.post('/login', [
         );
 
         res.json({ token });
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+//@ Get loggedin user's moivies
+// private
+
+route.get('/:user_id', auth, async (req, res) => {
+
+    try {
+        const userMovies = await User.findById(req.params.user_id).select('-password').populate('movies');
+        res.send(userMovies);
 
     } catch (err) {
         console.error(err.message);

@@ -123,11 +123,24 @@ route.put('/edit/likes/:movie_id', auth, async (req, res) => {
 // Private
 
 route.delete('/delete/:movie_id', auth, async (req, res) => {
-    console.log('test');
+
+    const movie_id = req.params.movie_id;
+    const user_id = req.user.id;
 
     try {
-        await Movie.findOneAndDelete({ _id: req.params.movie_id });
-        res.send('Deleted');
+        const currentUser = await User.findById(user_id);
+
+        const index = currentUser.movies.findIndex(el => el == movie_id) // !!! typeof el == object  typeof movie_id == string за това == 2 часа
+
+        const updatedList = currentUser.movies.filter(el => el != movie_id);
+
+        const updatedUser = await User.findOneAndUpdate({ _id: user_id }, { movies: updatedList }, { new: true });
+        const x = await User.findById({ _id: user_id });
+
+        let xxx = await Movie.findOneAndRemove({ _id: movie_id });
+
+        res.json(updatedUser.movies)
+
     } catch (err) {
         console.log(err.message);
         res.statys(500).send('Server Error');
