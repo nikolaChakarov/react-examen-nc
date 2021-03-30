@@ -130,14 +130,14 @@ route.delete('/delete/:movie_id', auth, async (req, res) => {
     try {
         const currentUser = await User.findById(user_id);
 
-        const index = currentUser.movies.findIndex(el => el == movie_id) // !!! typeof el == object  typeof movie_id == string за това == 2 часа
+        //const index = currentUser.movies.findIndex(el => el == movie_id) // !!! typeof el == object  typeof movie_id == string за това == 2 часа
 
-        const updatedList = currentUser.movies.filter(el => el != movie_id);
+        const updatedList = currentUser.movies.filter(el => el != movie_id);  // !!! typeof el == object  typeof movie_id == string за това == 2 часа
+
 
         const updatedUser = await User.findOneAndUpdate({ _id: user_id }, { movies: updatedList }, { new: true });
-        const x = await User.findById({ _id: user_id });
 
-        let xxx = await Movie.findOneAndRemove({ _id: movie_id });
+        await Movie.findOneAndRemove({ _id: movie_id });
 
         res.json(updatedUser.movies)
 
