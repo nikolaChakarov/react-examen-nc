@@ -24,11 +24,11 @@ route.post('/create', auth, [
         return;
     }
 
-    const { title, directro, imageURL, genre, blackAndWhite, description } = req.body;
+    const { title, director, imageURL, genre, blackAndWhite, description } = req.body;
 
     try {
         // create new movie
-        const movie = new Movie({ creator: req.user.id, title, directro, imageURL, genre, blackAndWhite, description });
+        const movie = new Movie({ creator: req.user.id, title, director, imageURL, genre, blackAndWhite, description });
         await movie.save();
 
         // add new movie to the current user -> the movie's creator, to his collection of movies. Only movie's ID!
@@ -48,7 +48,90 @@ route.post('/create', auth, [
 
 });
 
-// Update Movie
+// Get All Movie
 // Private
+
+route.get('/all', auth, async (req, res) => {
+
+    try {
+        const movies = await Movie.find();
+        res.json(movies);
+    } catch (err) {
+        console.log(err.message);
+        res.statys(500).send('Server Error');
+    }
+
+});
+
+// Get Movie By ID
+// Private
+
+route.get('/:movie_id', auth, async (req, res) => {
+
+    try {
+        const movie_id = req.params.movie_id;
+        const movie = await Movie.findOne({ _id: movie_id });
+        res.json(movie);
+    } catch (err) {
+        console.log(err.message);
+        res.statys(500).send('Server Error');
+    }
+
+});
+
+// Update Movie By ID
+// Private
+
+route.put('/edit/:movie_id', auth, async (req, res) => {
+
+    try {
+        const { title, director, imageURL, genre, blackAndWhite, description, likes } = req.body;
+        const newData = { title, director, imageURL, genre, blackAndWhite, description, likes };
+
+        const updated = await Movie.findOneAndUpdate({ _id: req.params.movie_id }, newData, { new: true });
+
+        res.json(updated);
+
+    } catch (err) {
+        console.log(err.message);
+        res.statys(500).send('Server Error');
+    }
+
+});
+
+// Update Movie Likes
+// Private
+
+route.put('/edit/likes/:movie_id', auth, async (req, res) => {
+
+    try {
+        const currentMovie = await Movie.findById(req.params.movie_id);
+        let likes = currentMovie.likes;
+        likes++;
+        const updated = await Movie.findOneAndUpdate({ _id: req.params.movie_id }, { likes }, { new: true });
+
+        res.json(updated);
+
+    } catch (err) {
+        console.log(err.message);
+        res.statys(500).send('Server Error');
+    }
+
+});
+
+// Delete Movie By ID
+// Private
+
+route.delete('/delete/:movie_id', auth, async (req, res) => {
+    console.log('test');
+
+    try {
+        await Movie.findOneAndDelete({ _id: req.params.movie_id });
+        res.send('Deleted');
+    } catch (err) {
+        console.log(err.message);
+        res.statys(500).send('Server Error');
+    }
+});
 
 module.exports = route;

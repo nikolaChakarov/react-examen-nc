@@ -9,7 +9,8 @@ const configMongoose = async () => {
         await mongoose.connect(config.DB, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useCreateIndex: true
+            useCreateIndex: true,
+            useFindAndModify: false
         }, () => {
             console.log('DB connected.');
         });
