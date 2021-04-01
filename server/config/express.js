@@ -11,6 +11,7 @@ const corsOptions = {
 const configExpress = (app) => {
     app.use(express.json({ extended: false }));
 
+    // cros-origin problem fix!!!
     app.use(cors(corsOptions));
 
     app.use(router);

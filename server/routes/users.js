@@ -60,7 +60,7 @@ route.post('/register', [
             { expiresIn: 3600 }
         );
 
-        res.json({ token });
+        res.json({ token, id: user.id });
 
     } catch (err) {
         console.error(err.message);
@@ -73,7 +73,7 @@ route.post('/register', [
 // public
 route.post('/login', [
     check('username', 'Username is required').not().isEmpty(),
-    check('password', 'Please, provide a 3 characters password or more').exists()
+    check('password', 'Please, provide a 3 characters password or more').not().isEmpty()
 ], async (req, res) => {
 
     const errors = validationResult(req);
@@ -113,7 +113,7 @@ route.post('/login', [
             { expiresIn: 36000 }
         );
 
-        res.json({ token });
+        res.json({ token, id: user.id });
 
     } catch (err) {
         console.error(err.message);
