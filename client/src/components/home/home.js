@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import './home.css';
+import { Link } from 'react-router-dom';
 
 import img from '../../img/pexels-pixabay-265144.jpg';
 
@@ -9,8 +10,8 @@ const Home = () => {
             <section className="first-look">
                 <h1>Welcome! To see our catalog, please:</h1>
                 <div className="first-look-btn">
-                    <a href="#">Login</a>
-                    <a href="#">Register</a>
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Register</Link>
                 </div>
             </section>
 

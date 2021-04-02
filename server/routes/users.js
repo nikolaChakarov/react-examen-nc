@@ -50,7 +50,7 @@ route.post('/register', [
         // save the user in DB
         const payload = {
             user: {
-                id: user.id // id from DB
+                id: user.id // id from DB,
             }
         }
 
@@ -60,7 +60,7 @@ route.post('/register', [
             { expiresIn: 3600 }
         );
 
-        res.json({ token, id: user.id });
+        res.json({ token, id: user.id, username: user.username });
 
     } catch (err) {
         console.error(err.message);
@@ -113,7 +113,7 @@ route.post('/login', [
             { expiresIn: 36000 }
         );
 
-        res.json({ token, id: user.id });
+        res.json({ token, id: user.id, username: user.username });
 
     } catch (err) {
         console.error(err.message);

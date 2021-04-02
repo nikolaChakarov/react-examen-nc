@@ -1,0 +1,37 @@
+/*-- Register Form --*/
+.register-section {
+    margin-bottom: 2rem;
+}
+
+.register-intro {
+    padding: 1rem;    
+    margin-bottom: 1rem;
+    border-top: 0.2rem groove #fff;
+    text-align: center;
+
+}
+
+.register-form {
+    width: 30vw;
+    padding: 1rem;
+    border: 0.2rem groove #fff;
+    margin: 0 auto;
+}
+
+.register-form input {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.3rem;
+    border: 0.2rem groove #fff; 
+}
+
+.register-form button, .register-section a {
+    text-align: center;
+    line-height: 2.2rem;
+    border: 0.1rem groove #fff;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 0.3rem 0.5rem;
+}
+
+/*-- end Register Form --*/
