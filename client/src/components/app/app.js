@@ -1,5 +1,5 @@
 import './app.css';
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Header from '../header';
@@ -30,7 +30,9 @@ const App = () => {
                 <Route path="/register">
                     <Register setUserData={setUserData} />
                 </Route>
-                <Route path="/login" component={Login} />
+                <Route path="/login">
+                    <Login setUserData={setUserData} />
+                </Route>
 
             </Switch>
             <Footer />
