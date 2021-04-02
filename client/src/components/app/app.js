@@ -7,6 +7,8 @@ import Home from '../home';
 import Footer from '../footer';
 import Register from '../register';
 import Login from '../login';
+import Logout from '../logout';
+
 
 
 import { setLocalStorage, getLocalStorage } from '../../services/auth';
@@ -26,12 +28,20 @@ const App = () => {
         <Fragment>
             <Header username={user.username} />
             <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/">
+                    <Home username={user.username} />
+                </Route>
+
                 <Route path="/register">
                     <Register setUserData={setUserData} />
                 </Route>
+
                 <Route path="/login">
                     <Login setUserData={setUserData} />
+                </Route>
+
+                <Route path="/logout">
+                    <Logout setUserData={setUserData} />
                 </Route>
 
             </Switch>
