@@ -41,7 +41,7 @@ const LoggedInLayout = ({ username }) => {
         <section className="first-look">
             <h1>Welcome {username}!</h1>
             <div className="first-look-btn">
-                <Link to="/catalog">Catalog</Link>
+                <Link to="/catalog">Go to... Catalog</Link>
             </div>
         </section>
     )

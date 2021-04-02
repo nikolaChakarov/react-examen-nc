@@ -24,11 +24,11 @@ route.post('/create', auth, [
         return;
     }
 
-    const { title, director, imageURL, genre, blackAndWhite, description } = req.body;
+    const { title, director, imageURL, genre, blackAndWhite, description, year } = req.body;
 
     try {
         // create new movie
-        const movie = new Movie({ creator: req.user.id, title, director, imageURL, genre, blackAndWhite, description });
+        const movie = new Movie({ creator: req.user.id, title, director, imageURL, genre, blackAndWhite, description, year });
         await movie.save();
 
         // add new movie to the current user -> the movie's creator, to his collection of movies. Only movie's ID!

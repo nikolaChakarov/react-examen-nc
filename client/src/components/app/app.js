@@ -9,6 +9,8 @@ import Register from '../register';
 import Login from '../login';
 import Logout from '../logout';
 
+import Create from '../create';
+
 
 
 import { setLocalStorage, getLocalStorage } from '../../services/auth';
@@ -42,6 +44,10 @@ const App = () => {
 
                 <Route path="/logout">
                     <Logout setUserData={setUserData} />
+                </Route>
+
+                <Route path="/create">
+                    <Create />
                 </Route>
 
             </Switch>

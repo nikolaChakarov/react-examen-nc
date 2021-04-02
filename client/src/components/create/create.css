@@ -1,0 +1,55 @@
+/*-- Create Form --*/
+.create-section {
+    width: 30vw;
+    margin: 0 auto;
+    border: 0.2rem groove #fff;
+    margin: 1rem auto;
+}
+
+.create-intro {
+    padding: 1rem;    
+    margin-bottom: 1rem;
+    border-bottom: 0.2rem groove #fff;
+    text-align: center;
+
+}
+
+.create-movie-form {
+    padding: 1rem;
+}
+
+.create-movie-form input {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.3rem;
+    border: 0.2rem groove #fff; 
+}
+
+.create-movie-form button {
+    text-align: center;
+    line-height: 2.2rem;
+    border: 0.1rem groove #fff;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 0.3rem 0.5rem;
+}
+
+.create-movie-form .checkbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0; 
+    border-bottom: 0.2rem groove #fff;
+}
+
+.create-movie-form #blackAndWhite {
+    background-color: mediumseagreen;
+    width: 2rem;
+    margin: 0;
+}
+
+.create-movie-form #description {
+    width: 100%;
+}
+
+/*-- end Create Form --*/
