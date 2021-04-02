@@ -17,7 +17,7 @@ const Home = () => {
 
             <section className="intro">
                 <div className="intro-img">
-                    <img src={img} alt="pc photo" className="intro-pc" />
+                    <img src={img} alt="pc" className="intro-pc" />
                 </div>
                 <div className="intro-text">
                     <h3>Hello, my name is Nikola Chakarov.</h3>

@@ -1,5 +1,5 @@
 import './app.css';
-import { Fragment } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Header from '../header';
@@ -9,18 +9,27 @@ import Register from '../register';
 import Login from '../login';
 
 
-import { getUserData } from '../../services/auth';
+import { setLocalStorage, getLocalStorage } from '../../services/auth';
 
 
 const App = () => {
 
+    const [user, setUser] = useState({ ...getLocalStorage() });
+
+    const setUserData = (user) => {
+
+        setLocalStorage(user);
+        setUser(user);
+    }
 
     return (
         <Fragment>
-            <Header />
+            <Header username={user.username} />
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/register" component={Register} />
+                <Route path="/register">
+                    <Register setUserData={setUserData} />
+                </Route>
                 <Route path="/login" component={Login} />
 
             </Switch>

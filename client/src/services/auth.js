@@ -1,4 +1,4 @@
-export const setUserData = (user) => {
+export const setLocalStorage = (user) => {
 
     if (!user.token) {
         localStorage.clear();
@@ -10,7 +10,7 @@ export const setUserData = (user) => {
     localStorage.setItem('username', user.username);
 }
 
-export const getUserData = () => {
+export const getLocalStorage = () => {
     return {
         token: localStorage.getItem('userToken'),
         userId: localStorage.getItem('userId'),

@@ -36,7 +36,7 @@ route.post('/register', [
         let user = await User.findOne({ username });
 
         if (user) {
-            res.status(400).json({ msg: 'User already exists' });
+            res.status(400).json({ error: { msg: 'User already exists' } });
             return;
         }
 

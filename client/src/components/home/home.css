@@ -6,8 +6,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-top: 2px groove #fff;
-    border-bottom: 2px groove #fff;
+    border-top: 0.2rem groove #fff;
+    border-bottom: 0.2rem groove #fff;
 }
 
 .first-look h1 {

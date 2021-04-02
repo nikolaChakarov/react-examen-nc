@@ -1,0 +1,23 @@
+.error {
+    display: none;
+    position: relative;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 2rem;
+    position: absolute;
+    left: 60vw;
+    right: 10vw;
+    box-shadow: 0.2rem 0.2rem 0.2rem rgba(51, 51, 51, 0.5);
+}
+
+.close-err-btn {
+    position: absolute;
+    top: -0.6rem;
+    right: -0.6rem;
+    padding: 0.3rem 0.6rem;
+    background-color: rgba(51, 51, 51, 0.6);
+    border: 0.1rem groove red;
+    color: #fff;
+    cursor: pointer;
+}
