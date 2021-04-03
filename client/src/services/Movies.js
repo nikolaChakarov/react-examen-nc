@@ -39,6 +39,18 @@ class Movies {
         return data;
     }
 
+    edit = async (id, movie) => {
+        const res = await fetch(`http://localhost:5000/movies/edit/${id}`, {
+            method: 'PUT',
+            headers: {
+                'x-auth-token': getLocalStorage().token
+            },
+            body: JSON.stringify(movie)
+        });
+        const data = await res.json();
+        return data;
+    }
+
 }
 
 export default new Movies();

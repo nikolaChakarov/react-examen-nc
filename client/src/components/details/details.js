@@ -55,15 +55,15 @@ const BtnGroup = ({ creator, movieId }) => {
     if (isCreator) {
         return (
             <div className="details-btn">
-                <Link to={`movies/edit/${movieId}`}>Edit</Link>
-                <Link to={`movies/delete/${movieId}`}>Delete</Link>
+                <Link to={`/edit/${movieId}`}>Edit</Link>
+                <Link to={`/delete/${movieId}`}>Delete</Link>
             </div>
         )
     }
 
     return (
         <div className="details-btn">
-            <Link to={`movies/like/${movieId}`}>Like</Link>
+            <Link to={`/like/${movieId}`}>Like</Link>
         </div>
     )
 }

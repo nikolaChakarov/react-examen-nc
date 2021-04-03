@@ -12,6 +12,8 @@ import Logout from '../logout';
 import Create from '../create';
 import Catalog from '../catalog';
 import Details from '../details';
+import Edit from '../edit';
+
 
 import { setLocalStorage, getLocalStorage } from '../../services/auth';
 
@@ -55,6 +57,7 @@ const App = () => {
                 </Route>
 
                 <Route path="/details/:movie_id" component={Details} />
+                <Route path="/edit/:movie_id" component={Edit} />
 
 
             </Switch>
