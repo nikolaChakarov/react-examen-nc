@@ -43,6 +43,7 @@ class Movies {
         const res = await fetch(`http://localhost:5000/movies/edit/${id}`, {
             method: 'PUT',
             headers: {
+                'Content-Type': 'application/json',
                 'x-auth-token': getLocalStorage().token
             },
             body: JSON.stringify(movie)

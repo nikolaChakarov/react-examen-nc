@@ -10,7 +10,6 @@ const MovieSchema = new mongoose.Schema({
         required: true
     },
     director: String,
-    year: Number,
     imageURL: String,
     genre: {
         type: String,
@@ -24,6 +23,9 @@ const MovieSchema = new mongoose.Schema({
     likes: {
         type: Number,
         default: 0
+    },
+    year: {
+        type: Number
     }
 });
 

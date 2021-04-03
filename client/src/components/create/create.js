@@ -45,6 +45,7 @@ const Create = () => {
 
         try {
             const res = await Movies.create({ title, director, imageURL, genre, blackAndWhite, description, year });
+            console.log(movie, 'create');
 
             history.push('/catalog');
 

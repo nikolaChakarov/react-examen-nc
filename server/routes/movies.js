@@ -85,8 +85,8 @@ route.get('/:movie_id', auth, async (req, res) => {
 route.put('/edit/:movie_id', auth, async (req, res) => {
 
     try {
-        const { title, director, imageURL, genre, blackAndWhite, description, likes } = req.body;
-        const newData = { title, director, imageURL, genre, blackAndWhite, description, likes };
+        //const { title, director, imageURL, genre, blackAndWhite, description, likes } = req.body; // ERROR!!!!!
+        const newData = { ...req.body };
 
         const updated = await Movie.findOneAndUpdate({ _id: req.params.movie_id }, { ...newData }, { new: true });
 
