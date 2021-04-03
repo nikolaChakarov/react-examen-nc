@@ -2,9 +2,9 @@ import './create.css';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import Movie from '../../services/Movie';
+import Movies from '../../services/Movies';
 
-import ErrorMessage from '../error';
+import ErrorMessage from '../error-message';
 
 const Create = () => {
 
@@ -44,7 +44,7 @@ const Create = () => {
         }
 
         try {
-            const res = await Movie.create({ title, director, imageURL, genre, blackAndWhite, description, year });
+            const res = await Movies.create({ title, director, imageURL, genre, blackAndWhite, description, year });
 
             history.push('/catalog');
 

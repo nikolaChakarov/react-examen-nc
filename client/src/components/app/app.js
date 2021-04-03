@@ -10,8 +10,8 @@ import Login from '../login';
 import Logout from '../logout';
 
 import Create from '../create';
-
-
+import Catalog from '../catalog';
+import Details from '../details';
 
 import { setLocalStorage, getLocalStorage } from '../../services/auth';
 
@@ -49,6 +49,13 @@ const App = () => {
                 <Route path="/create">
                     <Create />
                 </Route>
+
+                <Route path="/catalog">
+                    <Catalog />
+                </Route>
+
+                <Route path="/details/:movie_id" component={Details} />
+
 
             </Switch>
             <Footer />

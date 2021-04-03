@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 
 import User from '../../services/User';
-import ErrorMessage from '../error';
+import ErrorMessage from '../error-message';
 
 
 const Register = ({ setUserData }) => {
