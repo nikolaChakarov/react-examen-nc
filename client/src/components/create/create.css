@@ -25,12 +25,15 @@
 }
 
 .create-movie-form button {
-    text-align: center;
-    line-height: 2.2rem;
-    border: 0.1rem groove #fff;
-    color: #333;
-    background-color: rgba(255, 255, 255, 0.3);
+    border: 0.1rem groove rgb(50, 179, 243);
+    color: rgb(20, 79, 109);
     padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.create-movie-form button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .create-movie-form .checkbox {
