@@ -52,6 +52,17 @@ class Movies {
         return data;
     }
 
+    delete = async (id) => {
+        const res = await fetch(`http://localhost:5000/movies/delete/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'x-auth-token': getLocalStorage().token
+            }
+        });
+        const data = await res.json();
+        return data;
+    }
+
 }
 
 export default new Movies();

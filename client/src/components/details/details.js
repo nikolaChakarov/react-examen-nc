@@ -5,7 +5,9 @@ import { useState, useEffect } from 'react';
 import Movies from '../../services/Movies';
 import { getLocalStorage } from '../../services/auth';
 
-const Details = ({ match }) => {
+const Details = ({ match, history }) => {
+
+    const currentMovieId = match.params.movie_id;
 
     const [movie, setMovie] = useState({});
 
@@ -15,13 +17,29 @@ const Details = ({ match }) => {
 
     const getCurrentMovie = async () => {
 
-        const currentMovieId = match.params.movie_id;
         const data = await Movies.getMovieById(currentMovieId);
 
         setMovie({ ...movie, ...data });
     }
 
-    const { title, creator, director, imageURL, year, genre, blackAndWhite, description, _id } = movie;
+    const onLike = async () => {
+
+        let likes = movie.likes;
+        likes++;
+
+        const updatedMovieLikes = await Movies.edit(currentMovieId, { likes });
+
+        setMovie({ ...movie, ...updatedMovieLikes });
+    }
+
+    const onDelete = async () => {
+        const data = await Movies.delete(currentMovieId);
+        setMovie({});
+        console.log(data);
+        history.push(`/catalog`);
+    }
+
+    const { title, creator, director, imageURL, year, genre, blackAndWhite, description, likes, _id } = movie;
 
     return (
         <>
@@ -39,8 +57,14 @@ const Details = ({ match }) => {
                             <p>Genre: {genre}</p>
                             <p>Black and White: {blackAndWhite ? 'yes' : 'no'}</p>
                             <p>Description: {description}</p>
+                            <p>Likes: {likes}</p>
                         </div>
-                        <BtnGroup creator={creator} movieId={_id} />
+                        <BtnGroup
+                            creator={creator}
+                            movieId={_id}
+                            onLike={onLike}
+                            onDelete={onDelete}
+                        />
                     </div>
                 </div>
             </section>
@@ -48,7 +72,7 @@ const Details = ({ match }) => {
     )
 }
 
-const BtnGroup = ({ creator, movieId }) => {
+const BtnGroup = ({ creator, movieId, onLike, onDelete }) => {
 
     const isCreator = creator === getLocalStorage().userId ? true : false;
 
@@ -56,14 +80,14 @@ const BtnGroup = ({ creator, movieId }) => {
         return (
             <div className="details-btn">
                 <Link to={`/edit/${movieId}`}>Edit</Link>
-                <Link to={`/delete/${movieId}`}>Delete</Link>
+                <button onClick={onDelete}>Delete</button>
             </div>
         )
     }
 
     return (
         <div className="details-btn">
-            <Link to={`/like/${movieId}`}>Like</Link>
+            <button onClick={onLike}>Like</button>
         </div>
     )
 }

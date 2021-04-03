@@ -137,9 +137,9 @@ route.delete('/delete/:movie_id', auth, async (req, res) => {
 
         const updatedUser = await User.findOneAndUpdate({ _id: user_id }, { movies: updatedList }, { new: true });
 
-        await Movie.findOneAndRemove({ _id: movie_id });
+        const delResult = await Movie.findOneAndRemove({ _id: movie_id });
 
-        res.json(updatedUser.movies)
+        res.json({ msg: `${delResult.title}, has been erased!` });
 
     } catch (err) {
         console.log(err.message);
